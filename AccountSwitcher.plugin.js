@@ -6,6 +6,7 @@
 * @authorId 226677096091484160
 * @invite YzzeuJPpyj
 */
+
 module.exports = (() => {
 	const config = {
 		info: {
@@ -86,7 +87,7 @@ module.exports = (() => {
 				);
 			}
 
-			const KeyRecorder = class KeyRecorder extends WebpackModules.getByDisplayName("KeyRecorder") {
+			const KeyRecorder = class KeyRecorder extends (WebpackModules.getByDisplayName("KeyRecorder") || React.Component) {
 				render() {
 					const ButtonOptions = WebpackModules.getByProps("ButtonLink");
 					const Button = ButtonOptions.default;
@@ -113,7 +114,7 @@ module.exports = (() => {
 					return ret;
 				}
 			};
-			const KeybindModule = class KeybindModule extends DiscordModules.Keybind {
+			const KeybindModule = class KeybindModule extends (DiscordModules.Keybind || React.Component) {
 				constructor(props) {
 					super(props);
 				}
@@ -191,7 +192,6 @@ module.exports = (() => {
 						.accountswitcher-settingsbtnwrapper {
 							right: 0;
 							position: absolute;
-							margin-right: 10px;
 						}
 					`);
 					document.addEventListener("mouseup", this.openMenu);
